@@ -44,7 +44,6 @@ def subThread(params):
 
                 # 构建一条数据
                 dataLine = builtData(PID, date, author, author_url, title, file_url)
-                dataLine = builtData(PID, date, author, author_url, title)
                 saveLine(dataLine)
 
         else:

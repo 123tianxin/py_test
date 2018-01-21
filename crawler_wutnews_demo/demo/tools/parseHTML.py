@@ -1,17 +1,17 @@
 import re
 
 def match_Str(str, resHTML):
+    temp = None
     try:
         temp = re.search(str, resHTML, re.S)
         temp = temp.groups()
         temp = temp[0]
-        return temp
     except AttributeError as e:
         print("my --> AttributeError: 'NoneType' object has no attribute 'groups'")
     except TypeError as e:
         print("my --> TypeError: 'NoneType' object is not subscriptable")
     finally:
-        return None
+        return temp
     
 
 # 初始化HTML，压缩不会用到的部分
@@ -21,14 +21,19 @@ def initHTML(resHTML):
 
 # 做个判断，是否是完整的一篇文章
 def isFullText(resHTML):
-    try:
-        temp = re.search('>阅读全文</a>', resHTML, re.S)
-        if(temp == None):
-            return True
-    except Exception as e:
-        print("my --> TypeError: expected string or bytes-like object")
-    finally:
-        return False
+    temp = re.search('>阅读全文</a>', resHTML, re.S)
+    if(temp == None):
+        return True
+    return False
+
+    # try:
+    #     temp = re.search('>阅读全文</a>', resHTML, re.S)
+    #     if(temp == None):
+    #         return True
+    # except TypeError as e:
+    #     print("my --> TypeError: expected string or bytes-like object")
+    # finally:
+    #     return False
     
 
 # 获取博客发表时间
