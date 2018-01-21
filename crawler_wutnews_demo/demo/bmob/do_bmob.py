@@ -12,7 +12,7 @@ headers = {"X-Bmob-Application-Id": App_ID,
             "Content-Type": "application/json"}
 
 # 构建数据结构
-def builtData(PID, date, author, author_url, title, file_url):
+def builtData(PID='', date='', author='', author_url='', title='', file_url=''):
     datas = {   'PID': PID,
                 'entry_date': date, 
                 'author': author,
