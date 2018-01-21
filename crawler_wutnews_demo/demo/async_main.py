@@ -3,7 +3,7 @@ from main import *
 
 print("多线程开始执行......")
 pool = threadpool.ThreadPool(15)
-args_list = list(range(50))
+args_list = list(range(1000))
 req = threadpool.makeRequests(subThread, args_list)
 [pool.putRequest(temp) for temp in req]
 pool.wait()
